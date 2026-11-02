@@ -26,26 +26,34 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --------------------------------------------------------------------------
      1. ACTIVE SECTION TRACKING ON SCROLL
      -------------------------------------------------------------------------- */
-  function updateActiveNav() {
-    const scrollPosition = window.scrollY + 120; // Offset for sticky header
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navLinks.forEach((link) => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
-        });
-      }
+  function setActiveNav(sectionId) {
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${sectionId}`);
     });
   }
 
+  function updateActiveNav() {
+    if (!sections.length) return;
+    const headerHeight = document.querySelector('.header')?.getBoundingClientRect().height || 0;
+    const activationLine = headerHeight + Math.min(window.innerHeight * 0.24, 180);
+    let activeSection = sections[0];
+
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= activationLine) activeSection = section;
+    });
+
+    setActiveNav(activeSection.id);
+  }
+
   window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('resize', updateActiveNav, { passive: true });
+  window.addEventListener('hashchange', updateActiveNav);
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      const targetId = link.getAttribute('href')?.slice(1);
+      if (targetId) setActiveNav(targetId);
+    });
+  });
   updateActiveNav(); // Initial check
 
   /* --------------------------------------------------------------------------
@@ -160,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
               ? 'Appconcept · EveryHuman × Scentronix'
         : projectDescriptor;
     }
-    if (modalIntroLines) modalIntroLines.hidden = isVerpakt || isWatkok || isScentory;
+    if (modalIntroLines) modalIntroLines.hidden = isCoachCone || isVerpakt || isWatkok || isScentory;
     if (modalProjectSubtitle) {
       modalProjectSubtitle.textContent = isScentory
         ? 'Your perfume grows with you.'
@@ -220,6 +228,114 @@ document.addEventListener('DOMContentLoaded', () => {
   modalWatkokContent?.querySelector('.watkok-back-to-projects')?.addEventListener('click', closeProjectModal);
   modalScentoryContent?.querySelector('.lp-back-to-projects')?.addEventListener('click', closeProjectModal);
 
+  const aboutQuote = document.querySelector('.voorstellen-quote-wrapper');
+  if (aboutQuote) {
+    const quoteText = aboutQuote.querySelector('.quote-text');
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (quoteText && finePointer.matches) {
+      const aboutSection = aboutQuote.closest('.section-voorstellen') || aboutQuote;
+      let isDodging = false;
+
+      const resetQuotePosition = () => {
+        isDodging = false;
+        quoteText.style.setProperty('--quote-dodge-x', '0px');
+        quoteText.style.setProperty('--quote-dodge-y', '0px');
+      };
+
+      const distanceFromRect = (x, y, rect) => {
+        const dx = Math.max(rect.left - x, 0, x - rect.right);
+        const dy = Math.max(rect.top - y, 0, y - rect.bottom);
+        return Math.hypot(dx, dy);
+      };
+
+      const moveQuoteAway = (event) => {
+        if (motionPreference.matches || (event.pointerType && event.pointerType !== 'mouse' && event.pointerType !== 'pen')) {
+          resetQuotePosition();
+          return;
+        }
+
+        const currentRect = quoteText.getBoundingClientRect();
+        const currentX = Number.parseFloat(quoteText.style.getPropertyValue('--quote-dodge-x')) || 0;
+        const currentY = Number.parseFloat(quoteText.style.getPropertyValue('--quote-dodge-y')) || 0;
+        const baseRect = {
+          left: currentRect.left - currentX,
+          right: currentRect.right - currentX,
+          top: currentRect.top - currentY,
+          bottom: currentRect.bottom - currentY
+        };
+        const currentDistance = distanceFromRect(event.clientX, event.clientY, currentRect);
+        const baseDistance = distanceFromRect(event.clientX, event.clientY, baseRect);
+        const radius = 105;
+
+        if ((!isDodging && currentDistance > radius) || (isDodging && currentDistance > radius && baseDistance > radius)) {
+          resetQuotePosition();
+          return;
+        }
+
+        isDodging = true;
+        const clearance = 14;
+        const centerX = (currentRect.left + currentRect.right) / 2;
+        const wrapperRect = aboutQuote.getBoundingClientRect();
+        const minX = wrapperRect.left - baseRect.left;
+        const maxX = wrapperRect.right - baseRect.right;
+        const sectionRect = aboutSection.getBoundingClientRect();
+        const minY = Math.max(-32, sectionRect.top + 8 - baseRect.top);
+        const maxY = Math.min(32, sectionRect.bottom - 8 - baseRect.bottom);
+        if (minX > maxX || minY > maxY) {
+          resetQuotePosition();
+          return;
+        }
+
+        let targetX = currentX;
+        let targetY = currentY;
+        if (currentDistance <= clearance) {
+          // When the cursor gets close, move just far enough to keep a clear gap.
+          // Prefer whichever small shift (sideways or vertically) has room.
+          const candidates = [
+            { x: event.clientX + clearance - baseRect.left, y: currentY },
+            { x: event.clientX - clearance - baseRect.right, y: currentY },
+            { x: currentX, y: event.clientY - clearance - baseRect.bottom },
+            { x: currentX, y: event.clientY + clearance - baseRect.top }
+          ].filter((point) => point.x >= minX && point.x <= maxX && point.y >= minY && point.y <= maxY);
+
+          candidates.sort((a, b) => Math.hypot(a.x - currentX, a.y - currentY) - Math.hypot(b.x - currentX, b.y - currentY));
+          const nearest = candidates[0];
+          if (nearest && Math.hypot(nearest.x - currentX, nearest.y - currentY) <= 38) {
+            targetX = nearest.x;
+            targetY = nearest.y;
+          }
+        } else {
+          // At a comfortable distance, add only a small sideways nudge.
+          const nudge = Math.min(9, (1 - currentDistance / radius) * 9);
+          targetX = event.clientX <= centerX ? nudge : -nudge;
+          targetY = 0;
+          targetX = Math.max(minX, Math.min(maxX, targetX));
+          const nextRect = {
+            left: baseRect.left + targetX,
+            right: baseRect.right + targetX,
+            top: baseRect.top + targetY,
+            bottom: baseRect.bottom + targetY
+          };
+          if (distanceFromRect(event.clientX, event.clientY, nextRect) < clearance) {
+            targetX = currentX;
+            targetY = currentY;
+          }
+        }
+
+        quoteText.style.setProperty('--quote-dodge-x', `${targetX.toFixed(1)}px`);
+        quoteText.style.setProperty('--quote-dodge-y', `${targetY.toFixed(1)}px`);
+      };
+
+      document.addEventListener('pointermove', moveQuoteAway, { passive: true });
+      aboutSection.addEventListener('pointerleave', resetQuotePosition);
+      window.addEventListener('blur', resetQuotePosition);
+      motionPreference.addEventListener('change', (event) => {
+        if (event.matches) resetQuotePosition();
+      });
+    }
+  }
+
   if (modalOverlay) {
     modalOverlay.addEventListener('click', (e) => {
       if (e.target === modalOverlay) {
@@ -233,4 +349,157 @@ document.addEventListener('DOMContentLoaded', () => {
       closeProjectModal();
     }
   });
+
+  /* --------------------------------------------------------------------------
+     VISITOR SKETCHING: document-sized transparent canvas behind the portfolio
+     -------------------------------------------------------------------------- */
+  const sketchCanvas = document.querySelector('.sketch-canvas');
+  const sketchEraser = document.querySelector('.sketch-eraser');
+  const sketchHint = document.querySelector('.sketch-hint');
+  const sketchContext = sketchCanvas?.getContext('2d');
+
+  if (sketchHint) {
+    let hintTimeout;
+    sketchHint.addEventListener('click', () => {
+      sketchHint.classList.add('is-hint-open');
+      window.clearTimeout(hintTimeout);
+      hintTimeout = window.setTimeout(() => {
+        sketchHint.classList.remove('is-hint-open');
+      }, 2600);
+    });
+  }
+
+  if (sketchCanvas && sketchContext && sketchEraser) {
+    const strokes = [];
+    const maxStrokeCount = 160;
+    const maxStoredPoints = 24000;
+    let storedPointCount = 0;
+    let activeStroke = null;
+    let activePointerId = null;
+    let canvasPixelRatio = 1;
+
+    function sizeSketchCanvas() {
+      const cssWidth = Math.max(document.documentElement.scrollWidth, window.innerWidth);
+      const cssHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight, window.innerHeight);
+      canvasPixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+      sketchCanvas.style.width = `${cssWidth}px`;
+      sketchCanvas.style.height = `${cssHeight}px`;
+      sketchCanvas.width = Math.round(cssWidth * canvasPixelRatio);
+      sketchCanvas.height = Math.round(cssHeight * canvasPixelRatio);
+      sketchContext.setTransform(canvasPixelRatio, 0, 0, canvasPixelRatio, 0, 0);
+      redrawSketches();
+    }
+
+    function lineWidthFor(point, pointerType) {
+      const naturalVariation = Math.sin((point.x + point.y) * 0.025) * 0.14;
+      if (pointerType === 'pen' && point.pressure > 0) {
+        return 1.05 + point.pressure * 1.8 + naturalVariation;
+      }
+      if (pointerType === 'touch') return 2 + naturalVariation;
+      return 1.7 + naturalVariation;
+    }
+
+    function drawSegment(stroke, from, to) {
+      sketchContext.beginPath();
+      sketchContext.moveTo(from.x, from.y);
+      sketchContext.lineTo(to.x, to.y);
+      sketchContext.strokeStyle = '#111111';
+      sketchContext.lineWidth = lineWidthFor(to, stroke.pointerType);
+      sketchContext.lineCap = 'round';
+      sketchContext.lineJoin = 'round';
+      sketchContext.stroke();
+    }
+
+    function redrawSketches() {
+      const width = sketchCanvas.width / canvasPixelRatio;
+      const height = sketchCanvas.height / canvasPixelRatio;
+      sketchContext.clearRect(0, 0, width, height);
+      strokes.forEach((stroke) => {
+        for (let i = 1; i < stroke.points.length; i += 1) {
+          drawSegment(stroke, stroke.points[i - 1], stroke.points[i]);
+        }
+      });
+    }
+
+    function isDrawingBlocked(target) {
+      if (!(target instanceof Element)) return true;
+      const blockedElement = target.closest(
+        'a, button, input, textarea, select, option, label, nav, header, summary, iframe, video, audio, [role="button"], [role="link"], [role="checkbox"], [role="tab"], [role="menuitem"], [role="switch"], [role="slider"], [role="radio"], [tabindex]:not([tabindex="-1"]), [contenteditable="true"], .interactive-step, .project-card, .paper-card, .contact-bubble, figure, img, picture, .sticker, .sketch-eraser, .modal-overlay'
+      );
+      return Boolean(blockedElement) || Boolean(document.querySelector('.modal-overlay.active'));
+    }
+
+    function pointFromPointer(event) {
+      return {
+        x: event.pageX,
+        y: event.pageY,
+        pressure: event.pressure || 0.5
+      };
+    }
+
+    function beginSketch(event) {
+      if (!event.isPrimary || event.button !== 0 || isDrawingBlocked(event.target)) return;
+
+      event.preventDefault();
+      const pointerType = event.pointerType || 'mouse';
+      const firstPoint = pointFromPointer(event);
+      activeStroke = { pointerId: event.pointerId, pointerType, points: [firstPoint] };
+      activePointerId = event.pointerId;
+      strokes.push(activeStroke);
+      storedPointCount += 1;
+      document.body.classList.add('is-sketching');
+
+      if (event.target instanceof Element && event.target.setPointerCapture) {
+        try { event.target.setPointerCapture(event.pointerId); } catch (_) { /* capture is optional */ }
+      }
+    }
+
+    function continueSketch(event) {
+      if (!activeStroke || event.pointerId !== activePointerId) return;
+      const samples = typeof event.getCoalescedEvents === 'function' ? event.getCoalescedEvents() : [event];
+      samples.forEach((sample) => {
+        const nextPoint = pointFromPointer(sample);
+        const previousPoint = activeStroke.points[activeStroke.points.length - 1];
+        if (Math.hypot(nextPoint.x - previousPoint.x, nextPoint.y - previousPoint.y) < 0.7) return;
+        activeStroke.points.push(nextPoint);
+        storedPointCount += 1;
+        drawSegment(activeStroke, previousPoint, nextPoint);
+      });
+
+      while (strokes.length > maxStrokeCount || storedPointCount > maxStoredPoints) {
+        const oldestStroke = strokes.shift();
+        if (!oldestStroke) break;
+        storedPointCount -= oldestStroke.points.length;
+      }
+    }
+
+    function finishSketch(event) {
+      if (!activeStroke || (event && event.pointerId !== activePointerId)) return;
+      activeStroke = null;
+      activePointerId = null;
+      document.body.classList.remove('is-sketching');
+    }
+
+    document.addEventListener('pointerdown', beginSketch, { passive: false });
+    document.addEventListener('pointermove', continueSketch, { passive: true });
+    document.addEventListener('pointerup', finishSketch);
+    document.addEventListener('pointercancel', finishSketch);
+    window.addEventListener('blur', () => finishSketch());
+    window.addEventListener('resize', sizeSketchCanvas, { passive: true });
+
+    if ('ResizeObserver' in window) {
+      const pageSizeObserver = new ResizeObserver(sizeSketchCanvas);
+      pageSizeObserver.observe(document.body);
+      pageSizeObserver.observe(document.documentElement);
+    }
+
+    sketchEraser.addEventListener('click', () => {
+      strokes.length = 0;
+      storedPointCount = 0;
+      finishSketch();
+      redrawSketches();
+    });
+
+    sizeSketchCanvas();
+  }
 });

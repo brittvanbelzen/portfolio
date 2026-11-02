@@ -12,6 +12,8 @@
 </head>
 <body>
 
+  <canvas class="sketch-canvas" aria-hidden="true"></canvas>
+
   <!-- PUNCH HOLES -->
   <div class="punch-holes" aria-hidden="true">
     <span class="punch-hole"></span>
@@ -93,9 +95,9 @@
           <span>Kijk mee hoe ik van een idee naar een ontwerp&nbsp;ga.</span>
             <!-- hand-drawn arrow right -->
             <svg class="inline-arrow-right" width="200" height="70" viewBox="0 0 200 70" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path class="arrow-shaft" pathLength="100" d="M 8,48 C 52,58 124,44 178,22" stroke-width="2.6"/>
-              <path class="arrow-head arrow-head-top" pathLength="100" d="M 150,8 C 160,14 174,20 183,21" stroke-width="2.4"/>
-              <path class="arrow-head arrow-head-bottom" pathLength="100" d="M 168,42 C 174,32 180,24 183,21" stroke-width="2.4"/>
+              <path class="arrow-shaft" pathLength="100" d="M 8,48 C 52,58 124,44 178,22" stroke-width="2"/>
+              <path class="arrow-head arrow-head-top" pathLength="100" d="M 150,8 C 160,14 174,20 183,21" stroke-width="1.8"/>
+              <path class="arrow-head arrow-head-bottom" pathLength="100" d="M 168,42 C 174,32 180,24 183,21" stroke-width="1.8"/>
             </svg>
           </p>
         </div>
@@ -155,7 +157,6 @@
                 <path class="process-line arrow-ontwerp" pathLength="100" d="M157.5 307 L157.5 325 M152 318 L157.5 326 L163 318"/>
                 <g class="interactive-step step-ontwerp" data-process-step="ontwerp" tabindex="0" role="button" aria-label="06, Ontwerp">
                   <text class="process-text" x="157.5" y="348">Ontwerp</text>
-                  <path class="process-line ontwerp-underline" d="M107 359 C132 355 179 364 208 358"/>
                 </g>
               </svg>
 
@@ -191,11 +192,11 @@
       <div class="section-header-bar">
         <h2 class="section-title">
           Mijn werk
-          <svg class="title-wave" width="400" height="20" viewBox="0 0 400 20" fill="none" stroke="#000" stroke-linecap="round" preserveAspectRatio="none">
-            <path d="M 2,11 Q 55,2 100,13 Q 145,20 200,10 Q 255,2 300,13 Q 345,20 398,10" stroke-width="3"/>
+          <svg class="title-wave" width="400" height="12" viewBox="0 0 400 12" fill="none" stroke="#000" stroke-linecap="round" preserveAspectRatio="none">
+            <path d="M 2,7 C 62,4.5 118,8 178,6 C 238,4.5 306,8 398,5.8" stroke-width="1.8"/>
           </svg>
         </h2>
-        <span class="section-annotation">(kies een pagina uit het schetsboek)</span>
+        <span class="section-annotation">(Blader door mijn projecten)</span>
       </div>
 
       <div class="projects-grid">
@@ -203,49 +204,45 @@
         <!-- Project 1: Coach Cone -->
         <article class="project-card paper-card paper-card--tilt-left" id="project-coach-cone" data-project="Coach Cone" role="button" tabindex="0" aria-label="Open Coach Cone project">
           <div class="tape" aria-hidden="true"></div>
-          <div class="project-number">01 →</div>
           <h3 class="project-card-title">Coach Cone</h3>
           <div class="project-img-box">
-            <img src="productfoto-coach-cone.png" alt="Productfoto van Coach Cone" class="project-img" onerror="this.parentElement.classList.add('no-img')">
+            <img src="assets/images/productfoto-coach-cone.png" alt="Productfoto van Coach Cone" class="project-img" onerror="this.parentElement.classList.add('no-img')">
           </div>
-          <p class="project-caption">hoofdproject · klik om open te slaan</p>
+          <p class="project-caption">Fysiek hulpmiddel voor empathischer communiceren</p>
         </article>
 
         <!-- Project 2: Wat de Kok -->
         <article class="project-card paper-card paper-card--tilt-right" id="project-wat-de-kok" data-project="Wat de Kok" role="button" tabindex="0" aria-label="Open Wat de Kok project">
           <div class="tape" aria-hidden="true"></div>
-          <div class="project-number">02 →</div>
           <h3 class="project-card-title">Wat de Kok</h3>
           <div class="project-img-box">
-            <img src="Chatbot.png" alt="Screenshot van de AI-kookassistent van Wat de Kok" class="project-img" onerror="this.parentElement.classList.add('no-img')">
+            <img src="assets/images/Chatbot.png" alt="Screenshot van de AI-kookassistent van Wat de Kok" class="project-img" onerror="this.parentElement.classList.add('no-img')">
           </div>
-          <p class="project-caption">chatbot voor studenten · klik om open te slaan</p>
+          <p class="project-caption">AI-kookplatform voor betaalbaar koken</p>
         </article>
 
         <!-- Project 3: Verpakt in verpakking -->
         <article class="project-card paper-card paper-card--tilt-left" id="project-verpakt-in-verpakking" data-project="Verpakt in verpakking" role="button" tabindex="0" aria-label="Open Verpakt in verpakking project">
           <div class="tape" aria-hidden="true"></div>
-          <div class="project-number">03 →</div>
-          <h3 class="project-card-title">Verpakt in verpakking</h3>
+          <h3 class="project-card-title">Verpakt in Verpakking</h3>
           <div class="project-img-box">
-            <img src="Oververpakking.png" alt="Definitief ontwerp van Verpakt in Verpakking met kartonnen dozen en groen piepschuim" class="project-img" onerror="this.parentElement.classList.add('no-img')">
+            <img src="assets/images/Oververpakking.png" alt="Definitief ontwerp van Verpakt in Verpakking met kartonnen dozen en groen piepschuim" class="project-img" onerror="this.parentElement.classList.add('no-img')">
           </div>
-          <p class="project-caption">poster · klik om open te slaan</p>
+          <p class="project-caption">Campagneposter tegen oververpakking</p>
         </article>
 
         <!-- Project 4: Scentory -->
         <article class="project-card paper-card paper-card--tilt-right" id="project-scentory" data-project="Scentory" role="button" tabindex="0" aria-label="Open Scentory project">
           <div class="tape" aria-hidden="true"></div>
-          <div class="project-number">04 →</div>
           <h3 class="project-card-title">Scentory</h3>
           <div class="project-img-box scentory-project-img-box">
             <div class="scentory-collage" role="img" aria-label="Collage van de Scentory-app: beginscherm, persoonlijke aura en parfum">
-              <img class="scentory-screen scentory-screen--home" src="1 Home.png" alt="" aria-hidden="true">
-              <img class="scentory-screen scentory-screen--aura" src="4 Mijn aura.png" alt="" aria-hidden="true">
-              <img class="scentory-screen scentory-screen--perfume" src="7 Mijn parfum.png" alt="" aria-hidden="true">
+              <img class="scentory-screen scentory-screen--home" src="assets/images/1 Home.png" alt="" aria-hidden="true">
+              <img class="scentory-screen scentory-screen--aura" src="assets/images/4 Mijn aura.png" alt="" aria-hidden="true">
+              <img class="scentory-screen scentory-screen--perfume" src="assets/images/7 Mijn parfum.png" alt="" aria-hidden="true">
             </div>
           </div>
-          <p class="project-caption">mobile app · klik om open te slaan</p>
+          <p class="project-caption">Appconcept voor een persoonlijk parfumverhaal</p>
         </article>
 
       </div>
@@ -257,8 +254,8 @@
     <section id="even-voorstellen" class="section section-voorstellen">
       <h2 class="section-title">
         Even voorstellen
-        <svg class="title-wave" width="500" height="20" viewBox="0 0 500 20" fill="none" stroke="#000" stroke-linecap="round" preserveAspectRatio="none">
-          <path d="M 2,11 Q 65,2 125,13 Q 185,20 250,10 Q 315,2 375,13 Q 435,20 498,10" stroke-width="3"/>
+        <svg class="title-wave" width="500" height="12" viewBox="0 0 500 12" fill="none" stroke="#000" stroke-linecap="round" preserveAspectRatio="none">
+          <path d="M 2,7 C 80,4.5 148,8 222,6 C 303,4.5 385,8 498,5.8" stroke-width="1.8"/>
         </svg>
       </h2>
 
@@ -269,16 +266,17 @@
           <div class="polaroid paper-card">
             <div class="tape" aria-hidden="true"></div>
             <div class="polaroid-img-box">
-              <img src="even-voorstellen.png?v=1" alt="Britt van Belzen portretfoto" class="polaroid-img" onerror="this.parentElement.classList.add('no-img'); this.parentElement.innerHTML='<span class=\'empty-label\'>[portret]</span>'">
+              <img src="assets/images/even-voorstellen.png?v=1" alt="Britt van Belzen portretfoto" class="polaroid-img" onerror="this.parentElement.classList.add('no-img'); this.parentElement.innerHTML='<span class=\'empty-label\'>[portret]</span>'">
             </div>
           </div>
-          <p class="polaroid-caption">Britt, Breda</p>
           <!-- Tool stickers below portrait -->
           <div class="tool-stickers">
             <span class="sticker">Figma</span>
             <span class="sticker">Illustrator</span>
             <span class="sticker">InDesign</span>
-            <span class="sticker">Premiere</span>
+            <span class="sticker">Photoshop</span>
+            <span class="sticker">Premiere Pro</span>
+            <span class="sticker">AI-tools</span>
           </div>
         </div>
 
@@ -299,19 +297,21 @@
             <div class="list-card paper-card">
               <h3 class="list-card-title">Dit vind ik interessant</h3>
               <ul class="check-list">
-                <li><span class="check-box">□</span> Conceptontwikkeling</li>
-                <li><span class="check-box">□</span> Websites &amp; digitale ervaringen</li>
-                <li><span class="check-box">□</span> Experimenteren met nieuwe technieken</li>
-                <li><span class="check-box">□</span> Ontwerpen voor mensen</li>
+                <li><label class="check-option"><input class="hand-checkbox" type="checkbox"><span class="check-box" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 20 20"><path pathLength="100" d="M 2.7,10.1 C 4.1,9.7 6.5,13.8 8.4,15.7 C 9.3,16.5 10.2,14.1 11.4,12.5 C 13.1,10.2 15.2,6.8 17.6,4.4"/></svg></span><span>Conceptontwikkeling</span></label></li>
+                <li><label class="check-option"><input class="hand-checkbox" type="checkbox"><span class="check-box" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 20 20"><path pathLength="100" d="M 2.7,10.1 C 4.1,9.7 6.5,13.8 8.4,15.7 C 9.3,16.5 10.2,14.1 11.4,12.5 C 13.1,10.2 15.2,6.8 17.6,4.4"/></svg></span><span>Websites &amp; digitale ervaringen</span></label></li>
+                <li><label class="check-option"><input class="hand-checkbox" type="checkbox"><span class="check-box" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 20 20"><path pathLength="100" d="M 2.7,10.1 C 4.1,9.7 6.5,13.8 8.4,15.7 C 9.3,16.5 10.2,14.1 11.4,12.5 C 13.1,10.2 15.2,6.8 17.6,4.4"/></svg></span><span>UX/UI-design</span></label></li>
+                <li><label class="check-option"><input class="hand-checkbox" type="checkbox"><span class="check-box" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 20 20"><path pathLength="100" d="M 2.7,10.1 C 4.1,9.7 6.5,13.8 8.4,15.7 C 9.3,16.5 10.2,14.1 11.4,12.5 C 13.1,10.2 15.2,6.8 17.6,4.4"/></svg></span><span>Experimenteren met nieuwe technieken</span></label></li>
+                <li><label class="check-option"><input class="hand-checkbox" type="checkbox"><span class="check-box" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 20 20"><path pathLength="100" d="M 2.7,10.1 C 4.1,9.7 6.5,13.8 8.4,15.7 C 9.3,16.5 10.2,14.1 11.4,12.5 C 13.1,10.2 15.2,6.8 17.6,4.4"/></svg></span><span>AI &amp; creatieve technologie</span></label></li>
+                <li><label class="check-option"><input class="hand-checkbox" type="checkbox"><span class="check-box" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 20 20"><path pathLength="100" d="M 2.7,10.1 C 4.1,9.7 6.5,13.8 8.4,15.7 C 9.3,16.5 10.2,14.1 11.4,12.5 C 13.1,10.2 15.2,6.8 17.6,4.4"/></svg></span><span>Ontwerpen voor mensen</span></label></li>
               </ul>
             </div>
             <div class="list-card paper-card">
               <h3 class="list-card-title">Dit vind ik leuk</h3>
               <ul class="check-list">
-                <li><span class="check-box">□</span> Hockey</li>
-                <li><span class="check-box">□</span> Surfen</li>
-                <li><span class="check-box">□</span> Reizen</li>
-                <li><span class="check-box">□</span> Muziek &amp; gitaar</li>
+                <li><label class="check-option"><input class="hand-checkbox" type="checkbox"><span class="check-box" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 20 20"><path pathLength="100" d="M 2.7,10.1 C 4.1,9.7 6.5,13.8 8.4,15.7 C 9.3,16.5 10.2,14.1 11.4,12.5 C 13.1,10.2 15.2,6.8 17.6,4.4"/></svg></span><span>Hockey</span></label></li>
+                <li><label class="check-option"><input class="hand-checkbox" type="checkbox"><span class="check-box" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 20 20"><path pathLength="100" d="M 2.7,10.1 C 4.1,9.7 6.5,13.8 8.4,15.7 C 9.3,16.5 10.2,14.1 11.4,12.5 C 13.1,10.2 15.2,6.8 17.6,4.4"/></svg></span><span>Surfen</span></label></li>
+                <li><label class="check-option"><input class="hand-checkbox" type="checkbox"><span class="check-box" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 20 20"><path pathLength="100" d="M 2.7,10.1 C 4.1,9.7 6.5,13.8 8.4,15.7 C 9.3,16.5 10.2,14.1 11.4,12.5 C 13.1,10.2 15.2,6.8 17.6,4.4"/></svg></span><span>Reizen</span></label></li>
+                <li><label class="check-option"><input class="hand-checkbox" type="checkbox"><span class="check-box" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 20 20"><path pathLength="100" d="M 2.7,10.1 C 4.1,9.7 6.5,13.8 8.4,15.7 C 9.3,16.5 10.2,14.1 11.4,12.5 C 13.1,10.2 15.2,6.8 17.6,4.4"/></svg></span><span>Muziek &amp; gitaar</span></label></li>
               </ul>
             </div>
           </div>
@@ -321,7 +321,7 @@
 
       <!-- Quote -->
       <div class="voorstellen-quote-wrapper">
-        <p class="quote-text">"Ik geloof dat een goed idee niet onmogelijk hoeft te zijn."</p>
+        <p class="quote-text">Waarom binnen de lijntjes blijven?</p>
       </div>
     </section>
 
@@ -338,13 +338,16 @@
     <section id="contact" class="section section-contact">
       <h2 class="section-title">
         Contact
-        <svg class="title-wave" viewBox="0 0 150 14" fill="none" stroke="#000" stroke-linecap="round" preserveAspectRatio="none">
-          <path d="M 2,8 Q 25,2 50,10 Q 75,16 100,8 Q 125,2 148,10" stroke-width="2.6"/>
+        <svg class="title-wave" width="150" height="12" viewBox="0 0 150 12" fill="none" stroke="#000" stroke-linecap="round" preserveAspectRatio="none">
+          <path d="M 2,7 C 25,4.5 48,8 72,6 C 96,4.5 120,8 148,5.8" stroke-width="1.8"/>
         </svg>
       </h2>
 
       <div class="contact-bubble paper-card">
-        <p class="contact-intro">Een idee, vraag of samenwerking? Ik hoor graag van je.</p>
+        <div class="contact-copy">
+          <p class="contact-intro">Heb je een idee, project of vraag?</p>
+          <p class="contact-description">Laten we kennismaken! Ik sta open voor creatieve samenwerkingen, nieuwe ideeën en interessante gesprekken.</p>
+        </div>
 
         <div class="contact-links">
           <a href="mailto:brittvanbelzen@gmail.com" class="contact-link">
@@ -397,81 +400,101 @@
           </button>
         </header>
 
-        <div id="modal-generic-content">
-          <div class="modal-image-frame modal-hero-image">
-            <span class="modal-placeholder-label">[hero: eindresultaat, groot en vol beeld]</span>
+        <div id="modal-generic-content" class="coach-case-study">
+          <div class="cc-intro-layout">
+            <section class="modal-section cc-section">
+              <h3 class="modal-section-title">01 — Aanleiding + probleem</h3>
+              <p>Coach Cone is ontstaan vanuit de uitdaging om medewerkers te helpen tijdens lastige gesprekken bewuster en empathischer te communiceren.</p>
+              <p>Tijdens gesprekken kunnen medewerkers automatisch reageren vanuit eerdere ervaringen. Hierdoor kan een negatieve communicatiecirkel ontstaan.</p>
+              <p class="cc-design-question">“Hoe kunnen we een medewerker helpen om tijdens een lastig gesprek uit de systeemmodus te stappen en opnieuw vanuit de mens te communiceren?”</p>
+            </section>
+            <figure class="cc-hero-slot" data-image-slot="coach-cone-hero">
+              <div class="modal-image-frame cc-image-slot cc-hero-frame">
+                <img src="assets/images/coach-cone-eindresultaat.png" alt="Cone Coach, het fysieke hulpmiddel voor bewuster communiceren">
+              </div>
+              <figcaption class="cc-image-caption"><strong>Cone Coach</strong><span>Een fysiek hulpmiddel dat medewerkers helpt bewuster en empathischer te communiceren.</span></figcaption>
+            </figure>
           </div>
 
-          <div class="modal-sections-grid">
-          <section class="modal-section">
-            <h3 class="modal-section-title">1. AANLEIDING + PROBLEEM</h3>
-            <div class="modal-placeholder-lines modal-trigger-lines" aria-hidden="true">
-              <span></span><span></span><span></span><span></span><span class="short"></span>
-            </div>
-            <div class="modal-known-project-copy" id="modal-known-project-copy" hidden>
-              <p>Een fysiek object dat medewerkers helpt om tijdens gesprekken bewuster en empathischer te communiceren.</p>
-              <p>“Hoe kunnen we een medewerker helpen om tijdens een lastig gesprek uit de systeem-modus te stappen en opnieuw vanuit de mens te communiceren?”</p>
-            </div>
-          </section>
+          <div class="modal-sections-grid cc-sections-grid">
+            <section class="modal-section cc-section">
+              <h3 class="modal-section-title">02 — Onderzoek + inspiratie</h3>
+              <p>We onderzochten het vraagstuk met rollenspellen, casusanalyses en door de belangen van burgers en medewerkers te verkennen. Ook verdiepten we ons in de dramadriehoek van Karpman, de winnaarsdriehoek en Nonviolent Communication van Rosenberg.</p>
+              <p>Een belangrijk inzicht was dat mensen onbewust in vaste gedragspatronen en rollen kunnen terechtkomen. Daarom kozen we de medewerker als belangrijkste focus van het ontwerp.</p>
+              <div class="modal-image-strip cc-image-strip cc-method-list">
+                <figure class="cc-image-item">
+                  <figcaption>Rollenspellen</figcaption>
+                </figure>
+                <figure class="cc-image-item">
+                  <figcaption>Casusanalyses</figcaption>
+                </figure>
+              </div>
+              <figure class="cc-research-figure">
+                <div class="modal-image-frame cc-image-slot cc-research-frame">
+                  <img src="assets/images/coach-cone-kleurprompts.png" alt="Groene, gele en rode kleurprompts met gedragskenmerken en gesprekssuggesties voor de Cone Coach">
+                </div>
+                <figcaption class="cc-image-caption"><strong>Gedragspatronen</strong><span>Kleurprompts vertalen gedrag naar concrete feedback.</span></figcaption>
+              </figure>
+            </section>
 
-          <section class="modal-section">
-            <h3 class="modal-section-title">2. ONDERZOEK + INSPIRATIE</h3>
-            <div class="modal-image-strip">
-              <div class="modal-image-frame"><span class="modal-placeholder-label">foto</span></div>
-              <div class="modal-image-frame"><span class="modal-placeholder-label">foto</span></div>
-              <div class="modal-image-frame"><span class="modal-placeholder-label">foto</span></div>
-            </div>
-          </section>
+            <section class="modal-section cc-section">
+              <h3 class="modal-section-title">03 — Schetsen + experimenten</h3>
+              <p>Tijdens het ideegeneratieproces gebruikten we Forced Fit en twee keer Crazy 8. De empathiemeter kwam als belangrijk idee naar voren. We onderzochten ook emoties en embodiment: hoe emoties fysiek voelbaar worden en welke behoeften daaronder liggen.</p>
+              <div class="modal-image-strip cc-image-strip cc-sketch-strip">
+                <figure class="cc-image-item">
+                  <figcaption><strong>Paperclips in de knoop</strong><span>Frictie en rustig samenwerken.</span></figcaption>
+                </figure>
+                <figure class="cc-image-item">
+                  <figcaption><strong>Geluidskokers</strong><span>Botsend geluid als symbool voor irritatie.</span></figcaption>
+                </figure>
+                <figure class="cc-image-item">
+                  <figcaption><strong>Bezem met gewicht</strong><span>Het samen dragen van lasten.</span></figcaption>
+                </figure>
+              </div>
+            </section>
 
-          <section class="modal-section">
-            <h3 class="modal-section-title">3. SCHETSEN + EXPERIMENTEN</h3>
-            <div class="modal-image-strip">
-              <div class="modal-image-frame modal-sketch-frame"><span class="modal-placeholder-label">schets</span></div>
-              <div class="modal-image-frame modal-sketch-frame"><span class="modal-placeholder-label">schets</span></div>
-              <div class="modal-image-frame modal-sketch-frame"><span class="modal-placeholder-label">schets</span></div>
-            </div>
-          </section>
+            <section class="modal-section cc-section">
+              <h3 class="modal-section-title">04 — Ontwerpproces</h3>
+              <p>Na de eerste testexpositie ontwikkelden we het prototype verder met feedback van de opdrachtgever, docenten en andere betrokkenen. We experimenteerden met de vorm, de positie van de prompts, het licht en de werking van de Cone Coach.</p>
+              <p>We overwogen eerst om de prompts op een computerscherm te tonen. Uiteindelijk verwerkten we ze direct in de Cone, zodat het ontwerp compact blijft en op een bureau past.</p>
+              <div class="cc-process-gallery">
+                <div class="modal-image-frame cc-image-slot" data-image-slot="coach-cone-process-1"><img src="assets/images/coach-cone-eerste-prototype.png" alt="Eerste kartonnen prototype van de Cone Coach"></div>
+                <div class="modal-image-frame cc-image-slot" data-image-slot="coach-cone-process-2"><img src="assets/images/coach-cone-testexpositie-overzicht.jpg" alt="Presentatie van de Cone Coach tijdens de testexpositie"></div>
+              </div>
+            </section>
 
-          <section class="modal-section">
-            <h3 class="modal-section-title">4. ONTWERPPROCES</h3>
-            <p class="modal-process-steps">Idee → Schets → Prototype → Test</p>
-            <div class="modal-placeholder-lines" aria-hidden="true">
-              <span></span><span></span><span class="short"></span>
-            </div>
-          </section>
+            <section class="modal-section cc-section">
+              <h3 class="modal-section-title">05 — Eindresultaat</h3>
+              <p>De Cone Coach is een fysiek hulpmiddel dat medewerkers tijdens gesprekken bewust maakt van hun gedrag en communicatie.</p>
+              <p>Subtiele visuele feedback in groen, rood en oranje stimuleert medewerkers om stil te staan bij hun reacties, bewuster te luisteren, empathie te tonen en vragen te stellen.</p>
+              <figure class="cc-result-figure" data-image-slot="coach-cone-result-use">
+                <div class="modal-image-frame cc-image-slot cc-result-use">
+                  <img src="assets/images/coach-cone-gebruik-rood.png" alt="Cone Coach met rode feedback tijdens gebruik">
+                </div>
+                <figcaption class="cc-image-caption"><strong>In gebruik</strong><span>De Cone Coach tijdens een gesprek, met rode feedback in beeld.</span></figcaption>
+              </figure>
+            </section>
 
-          <section class="modal-section">
-            <h3 class="modal-section-title">5. EINDRESULTAAT</h3>
-            <div class="modal-image-frame modal-result-image">
-              <span class="modal-placeholder-label">[eindbeeld / foto prototype]</span>
-            </div>
-          </section>
-
-          <section class="modal-section">
-            <h3 class="modal-section-title">6. REFLECTIE</h3>
-            <div class="modal-placeholder-lines" aria-hidden="true">
-              <span></span><span></span><span></span><span></span><span class="short"></span>
-            </div>
-          </section>
+            <section class="modal-section cc-section">
+              <h3 class="modal-section-title">06 — Reflectie</h3>
+              <p>Binnen het groepsproces nam ik regelmatig het voortouw. Ik stelde voor wat we tijdens de lessen konden doen, hielp groepsleden met het begrijpen van concepten en presentaties en probeerde iedereen betrokken te houden.</p>
+              <p>Ik leerde hoe belangrijk het is om feedback actief op te halen, prototypes te testen en een ontwerp duidelijk te presenteren. Ook merkte ik dat een goed idee sterker wordt wanneer je het op basis van feedback blijft verbeteren.</p>
+              <div class="modal-image-frame cc-image-slot cc-reflection-slot" data-image-slot="coach-cone-reflection"><img src="assets/images/coach-cone-groepsfoto.png" alt="Groepsfoto bij de presentatie van de Cone Coach"></div>
+            </section>
           </div>
         </div>
 
         <article class="vvp-project" id="modal-verpakt-content" hidden>
           <section class="vvp-hero" aria-labelledby="vvp-hero-heading">
             <div class="vvp-hero-copy">
-              <p class="vvp-eyebrow">Graphic Matters · Grafisch ontwerp / campagneposter</p>
               <h3 class="vvp-hero-heading" id="vvp-hero-heading">Van een broodrooster naar een vraag over overdaad.</h3>
               <p>Toen ik een nieuwe broodrooster uitpakte, viel me op hoeveel verpakkingsmateriaal eromheen zat. Een relatief klein product bracht me bij een groter probleem: oververpakking en de impact daarvan op het milieu.</p>
-              <div class="vvp-tools" aria-label="Gebruikte programma's">
-                <span>Adobe Illustrator</span>
-                <span>Adobe Photoshop</span>
-              </div>
             </div>
             <figure class="vvp-hero-figure">
               <div class="vvp-image-frame vvp-sketch-image">
-                <img src="Oververpakking.png" alt="Definitief posterontwerp Verpakt in Verpakking met kartonnen dozen en groen piepschuim">
+                <img src="assets/images/Oververpakking.png" alt="Definitief posterontwerp Verpakt in Verpakking met kartonnen dozen en groen piepschuim">
               </div>
-              <figcaption>Eerste conceptschets · bestaand procesbeeld</figcaption>
+              <figcaption>Definitief posterontwerp van Verpakt in Verpakking.</figcaption>
             </figure>
           </section>
 
@@ -479,16 +502,22 @@
             <div class="vvp-section">
               <p class="vvp-kicker">01 / Aanleiding</p>
               <h3 class="vvp-section-title">Een klein product, veel verpakking</h3>
-              <p>Voor de opdracht van Graphic Matters moest ik een poster maken over iets waarvan ik vind dat het moet stoppen. Eerst dacht ik aan femicide, een belangrijk onderwerp dat destijds veel in het nieuws was. Ik wilde ook onderzoeken of ik een onderwerp kon kiezen waar mensen minder snel bij stilstaan.</p>
-              <p>Het uitpakken van mijn nieuwe broodrooster zette me aan het denken. Waarom heeft zo'n relatief klein product zoveel verpakkingsmateriaal nodig? Ik besloot oververpakking zichtbaar te maken.</p>
+              <div class="vvp-motivation-layout">
+                <div class="vvp-motivation-copy">
+                  <p>Voor de opdracht van Graphic Matters moest ik een poster maken over iets waarvan ik vind dat het moet stoppen. Eerst dacht ik aan femicide, een belangrijk onderwerp dat destijds veel in het nieuws was. Ik wilde ook onderzoeken of ik een onderwerp kon kiezen waar mensen minder snel bij stilstaan.</p>
+                  <p>Het uitpakken van mijn nieuwe broodrooster zette me aan het denken. Waarom heeft zo'n relatief klein product zoveel verpakkingsmateriaal nodig? Ik besloot oververpakking zichtbaar te maken.</p>
+                </div>
+                <figure class="vvp-inspiration-figure">
+                  <div class="vvp-image-frame vvp-inspiration-image">
+                    <img src="assets/images/inspiratie-uitpakproces.jpg" alt="Uitgepakte broodroosterverpakking met karton en overtollig beschermmateriaal">
+                  </div>
+                </figure>
+              </div>
             </div>
             <div class="vvp-section vvp-concept-section">
               <p class="vvp-kicker">02 / Concept</p>
               <h3 class="vvp-section-title">Verpakt in Verpakking</h3>
               <p>Ik wilde niet simpelweg “STOP MET OVERVERPAKKING” op een poster zetten. De titel “VERPAKT IN VERPAKKING” creëert een illusie: een verpakking die maar doorgaat. Door dozen in elkaar te plaatsen, nodig ik de kijker uit zelf stil te staan bij de hoeveelheid verpakkingsmateriaal die we dagelijks gebruiken.</p>
-              <div class="vvp-boxes" role="img" aria-label="Schematische tekening van dozen die in elkaar passen">
-                <span class="vvp-box vvp-box--outer"><span class="vvp-box vvp-box--middle"><span class="vvp-box vvp-box--inner"></span></span></span>
-              </div>
             </div>
           </section>
 
@@ -496,7 +525,7 @@
             <p class="vvp-kicker">03 / Ontwerpproces</p>
             <h3 class="vvp-section-title">Van basisillustratie naar eigen beeld</h3>
             <div class="vvp-process-grid">
-              <p>Ik begon met een standaardillustratie van een kartonnen doos die ik online vond. Die gebruikte ik als basis en liet ik met behulp van AI aanpassen. Daarna werkte ik de kleuren, vormen en typografie verder uit.</p>
+              <p>Ik begon met een standaardillustratie van een kartonnen doos die ik online vond. Die gebruikte ik als basis en liet ik met behulp van AI aanpassen. Daarna werkte ik de compositie, kleuren, vormen en typografie verder uit.</p>
               <p>Tijdens het ontwerpen probeerde ik verschillende composities en aantallen dozen. In een eerste versie was ik tevreden over de acht dozen, maar het beeld kon nog sterker. Groen piepschuim gaf meer contrast met het bruine karton en meer diepte en herkenbaarheid.</p>
             </div>
           </section>
@@ -506,42 +535,33 @@
             <h3 class="vvp-section-title">Elke versie maakt de boodschap scherper</h3>
             <div class="vvp-iterations">
               <article class="vvp-iteration">
-                <div class="vvp-iteration-frame"><span>Eerste versies</span></div>
+                <div class="vvp-iteration-frame"><img src="assets/images/proces-01-eerste-versies.png" alt="Eerste versies van de postercompositie"></div>
                 <h4>Eerste versies</h4>
                 <p>Experimenten met verschillende kartonnen dozen en de positie van de tekst.</p>
               </article>
               <article class="vvp-iteration">
-                <div class="vvp-iteration-frame"><span>Versie 8 · beeld volgt</span></div>
+                <div class="vvp-iteration-frame"><img src="assets/images/proces-02-versie-8.png" alt="Posterontwerp, versie 8"></div>
                 <h4>Versie 8</h4>
                 <p>Ik was tevreden over de acht dozen, maar vond het totaalbeeld nog niet sterk genoeg.</p>
               </article>
               <article class="vvp-iteration">
-                <div class="vvp-iteration-frame"><span>Versie 10 · beeld volgt</span></div>
+                <div class="vvp-iteration-frame"><img src="assets/images/proces-03-versie-10.png" alt="Posterontwerp, versie 10"></div>
                 <h4>Versie 10</h4>
                 <p>Groen piepschuim en steeds kleinere dozen zorgden voor meer contrast en een krachtiger beeld.</p>
               </article>
-              <article class="vvp-iteration vvp-iteration--final">
-                <div class="vvp-iteration-frame"><span>Definitieve versie · beeld volgt</span></div>
-                <h4>Definitieve versie</h4>
+              <article class="vvp-iteration">
+                <div class="vvp-iteration-frame"><img src="assets/images/proces-04-definitieve-compositie.png" alt="Posterontwerp, versie 12"></div>
+                <h4>Versie 12</h4>
                 <p>De derde doos maakte de compositie te druk. Ik verving die door een gesloten doos. Zo ontstond een rustiger aandachtspunt en bleef de tekst zichtbaar, waardoor de kijker zelf de suggestie maakt dat er nog een verpakking in zit.</p>
               </article>
             </div>
           </section>
 
-          <section class="vvp-result-reflection">
-            <div class="vvp-section vvp-result-section">
-              <p class="vvp-kicker">05 / Eindresultaat</p>
-              <h3 class="vvp-section-title">Een beeld dat laat nadenken</h3>
-              <div class="vvp-final-placeholder">Definitieve posterafbeelding volgt</div>
-              <p>Het ontwerp bestaat uit kartonnen dozen, groen piepschuim en de tekst “VERPAKT IN VERPAKKING”. Het bruine karton en het groene piepschuim zorgen voor kleurcontrast; de herhaling versterkt het idee van overdaad.</p>
-              <p>Ik maakte het ontwerp in Adobe Illustrator en bewerkte het piepschuim verder in Adobe Photoshop om het realistischer te laten ogen.</p>
-            </div>
-            <div class="vvp-section vvp-reflection-section">
-              <p class="vvp-kicker">06 / Reflectie</p>
-              <h3 class="vvp-section-title">Minder kan sterker zijn</h3>
-              <p>Ik ben tevreden omdat het ontwerp het probleem benoemt en de kijker ook zelf laat nadenken. Ik leerde dat een boodschap niet altijd letterlijk hoeft te worden uitgelegd: compositie, herhaling en contrast kunnen veel vertellen.</p>
-              <p>Ik merkte ook hoe belangrijk het is kritisch naar mijn eigen ontwerp te blijven kijken. Soms maakt het weghalen van elementen een ontwerp juist sterker. Mijn docent vond het een sterk concept en waardeerde dat ik mensen zelf liet nadenken.</p>
-            </div>
+          <section class="vvp-section vvp-reflection-section">
+            <p class="vvp-kicker">05 / Reflectie</p>
+            <h3 class="vvp-section-title">Minder kan sterker zijn</h3>
+            <p>Ik ben tevreden omdat het ontwerp het probleem benoemt en de kijker ook zelf laat nadenken. Ik leerde dat een boodschap niet altijd letterlijk hoeft te worden uitgelegd: compositie, herhaling en contrast kunnen veel vertellen.</p>
+            <p>Ik merkte ook hoe belangrijk het is kritisch naar mijn eigen ontwerp te blijven kijken. Soms maakt het weghalen van elementen een ontwerp juist sterker. Mijn docent vond het een sterk concept en waardeerde dat ik mensen zelf liet nadenken.</p>
           </section>
 
           <div class="vvp-project-footer">
@@ -553,18 +573,14 @@
         <article class="watkok-project" id="modal-watkok-content" hidden>
           <section class="watkok-hero" aria-labelledby="watkok-hero-heading">
             <div class="watkok-hero-copy">
-              <p class="watkok-eyebrow">Creative Technology 2 · Make an AI ChatBot Assistant</p>
               <h3 class="watkok-hero-heading" id="watkok-hero-heading">Betaalbaar en makkelijk koken, met een beetje hulp.</h3>
               <p>Wat de Kok is een AI-chatbot en kookplatform voor studenten op kamers. De applicatie helpt bij het bedenken van eenvoudige, betaalbare maaltijden die passen bij het boodschappenbudget.</p>
-              <div class="watkok-topics" aria-label="Onderwerpen">
-                <span>AI</span><span>API</span><span>Webdesign</span><span>UX/UI</span><span>Vibe coding</span>
-              </div>
             </div>
             <figure class="watkok-hero-figure">
               <div class="watkok-image-frame watkok-concept-image">
-                <img src="Chatbot.png" alt="Screenshot van de Wat de Kok-website met de AI-kookassistent">
+                <img src="assets/images/Chatbot.png" alt="Screenshot van de Wat de Kok-website met de AI-kookassistent">
               </div>
-              <figcaption>Conceptschets van de kookcoach · bestaand projectbeeld</figcaption>
+              <figcaption>Startpagina van Wat de Kok met de AI-kookassistent.</figcaption>
             </figure>
           </section>
 
@@ -588,22 +604,30 @@
             <h3 class="watkok-section-title">Vier onderdelen, één kookplatform</h3>
             <div class="watkok-features">
               <article class="watkok-feature">
-                <div class="watkok-screen-placeholder">Screenshot receptenpagina toevoegen</div>
+                <div class="watkok-screen-placeholder watkok-screen-frame">
+                  <img src="assets/images/recepten.png" alt="Screenshot van het receptenoverzicht van Wat de Kok">
+                </div>
                 <h4>Recepten</h4>
                 <p>Een overzicht met makkelijke en betaalbare studentenrecepten om inspiratie op te doen.</p>
               </article>
               <article class="watkok-feature">
-                <div class="watkok-screen-placeholder">Screenshot budgetplanner toevoegen</div>
+                <div class="watkok-screen-placeholder watkok-screen-frame">
+                  <img src="assets/images/budgetplanner.png" alt="Screenshot van de budgetplanner van Wat de Kok">
+                </div>
                 <h4>Budgetplanner</h4>
                 <p>Een plek om het boodschappenbudget in te voeren en inzicht te krijgen in de kosten.</p>
               </article>
               <article class="watkok-feature">
-                <div class="watkok-screen-placeholder">Screenshot AI-kookassistent toevoegen</div>
-                <h4>AI-kookassistent</h4>
+                <div class="watkok-screen-placeholder watkok-screen-frame">
+                  <img class="watkok-chat-screen" src="assets/images/ai-chatbot.png" alt="Screenshot van de AI-kookassistent van Wat de Kok">
+                </div>
+                <h4>Chat met de Kookcoach</h4>
                 <p>De chatbot helpt bij het bedenken van maaltijden en houdt rekening met het budget.</p>
               </article>
               <article class="watkok-feature">
-                <div class="watkok-screen-placeholder">Screenshot Over de Maker toevoegen</div>
+                <div class="watkok-screen-placeholder watkok-screen-frame">
+                  <img src="assets/images/over-de-maker.png" alt="Screenshot van de pagina Over de Maker van Wat de Kok">
+                </div>
                 <h4>Over Wat de Kok</h4>
                 <p>Een pagina over het concept en de maker, met een favoriet studentenrecept.</p>
               </article>
@@ -616,7 +640,7 @@
               <h3 class="watkok-section-title">Mijn eerste stap in vibe coding</h3>
             </div>
             <div class="watkok-process-copy">
-              <p>Dit was mijn eerste kennismaking met vibe coding. Tijdens Creative Technology leerde ik AI in te zetten bij het ontwikkelen van een website en een AI-chatbot aan een webomgeving te koppelen.</p>
+              <p>Dit was mijn eerste kennismaking met vibe coding. Tijdens Creative Technology ontwikkelde ik de website en koppelde ik een AI-chatbot aan de webomgeving.</p>
               <p>Ik experimenteerde met prompts, werkte functionaliteiten uit en verbeterde de website stap voor stap. Zo ontdekte ik hoe je met AI van een idee naar een werkende applicatie kunt gaan.</p>
             </div>
             <div class="watkok-tool-list" aria-label="Gebruikte tools">
@@ -625,15 +649,8 @@
           </section>
 
           <section class="watkok-result-reflection">
-            <div class="watkok-section watkok-result-section">
-              <p class="watkok-kicker">05 / Het eindresultaat</p>
-              <h3 class="watkok-section-title">Wat de Kok in beeld</h3>
-              <div class="watkok-final-placeholder">Screenshots van de werkende website toevoegen</div>
-              <p>De receptenpagina, budgetplanner, AI-kookassistent en pagina Over de Maker vormen samen het kookplatform.</p>
-              <p class="watkok-link-note">Link naar de werkende website: nog aan te vullen</p>
-            </div>
             <div class="watkok-section watkok-reflection-section">
-              <p class="watkok-kicker">06 / Reflectie</p>
+              <p class="watkok-kicker">05 / Reflectie</p>
               <h3 class="watkok-section-title">Design en technologie samen</h3>
               <p>Ik vond het interessant om te ontdekken hoe je met behulp van AI van een idee naar een werkende applicatie kunt gaan. Het experimenteren met prompts en functionaliteiten heeft mijn interesse in programmeren en AI vergroot.</p>
               <p>Ik leerde hoe AI kan helpen bij een praktisch probleem. Dit project heeft mijn interesse in de combinatie van design en technologie verder aangewakkerd en is een belangrijke stap in mijn ontwikkeling binnen CMD.</p>
@@ -654,7 +671,7 @@
             </div>
             <figure class="lp-hero-figure">
               <div class="lp-image-frame lp-phone-frame">
-                <img src="1 Home.png" alt="Startscherm van Scentory met de persoonlijke aura">
+                <img src="assets/images/1 Home.png" alt="Startscherm van Scentory met de persoonlijke aura">
               </div>
               <figcaption>Een persoonlijk parfumverhaal dat verder groeit.</figcaption>
             </figure>
@@ -669,7 +686,7 @@
             <div class="lp-section">
               <h3 class="lp-section-title">Van herinnering naar geur</h3>
               <p>Spraakherinneringen vormen een persoonlijke aura. De gebruiker volgt hoe die verandert, vergelijkt eerdere versies en ontwikkelt het parfum verder.</p>
-              <p class="lp-name-note"><strong>Scent</strong> is geur en parfum; <strong>Story</strong> staat voor persoonlijke verhalen, herinneringen en ervaringen. Samen is Scentory het verhaal achter een geur.</p>
+              <p class="lp-name-note"><strong>The Living Perfume</strong> is de werktitel op het design system; op deze pagina heet het project Scentory. <strong>Scent</strong> verwijst naar geur en parfum, <strong>Story</strong> naar persoonlijke verhalen, herinneringen en ervaringen.</p>
             </div>
           </section>
 
@@ -678,19 +695,19 @@
             <h3 class="lp-section-title">Van herinnering naar aura</h3>
             <div class="lp-screen-grid">
               <figure class="lp-screen-card">
-                <div class="lp-image-frame lp-phone-frame"><img src="2 Dagboek en voice.png" alt="Dagboek en spraakfunctie om herinneringen vast te leggen"></div>
+                <div class="lp-image-frame lp-phone-frame"><img src="assets/images/2 Dagboek en voice.png" alt="Dagboek en spraakfunctie om herinneringen vast te leggen"></div>
                 <figcaption><strong>01 · Herinneren</strong><span>Een moment vastleggen in het dagboek of via spraak.</span></figcaption>
               </figure>
               <figure class="lp-screen-card">
-                <div class="lp-image-frame lp-phone-frame"><img src="3 Voice-gesprek.png" alt="Spraakgesprek over een persoonlijke herinnering"></div>
+                <div class="lp-image-frame lp-phone-frame"><img src="assets/images/3 Voice-gesprek.png" alt="Spraakgesprek over een persoonlijke herinnering"></div>
                 <figcaption><strong>02 · Vertellen</strong><span>Een gesprek helpt de herinnering verder te verkennen.</span></figcaption>
               </figure>
               <figure class="lp-screen-card">
-                <div class="lp-image-frame lp-phone-frame"><img src="3 Herinnering controleren.png" alt="Scherm om een herinnering te controleren"></div>
+                <div class="lp-image-frame lp-phone-frame"><img src="assets/images/3 Herinnering controleren.png" alt="Scherm om een herinnering te controleren"></div>
                 <figcaption><strong>03 · Controleren</strong><span>De gebruiker bekijkt de herinnering voordat deze wordt opgeslagen.</span></figcaption>
               </figure>
               <figure class="lp-screen-card">
-                <div class="lp-image-frame lp-phone-frame"><img src="4 Mijn aura.png" alt="Persoonlijke aura in de app"></div>
+                <div class="lp-image-frame lp-phone-frame"><img src="assets/images/4 Mijn aura.png" alt="Persoonlijke aura in de app"></div>
                 <figcaption><strong>04 · Aura zien</strong><span>Ervaringen krijgen een persoonlijke, visuele vertaling.</span></figcaption>
               </figure>
             </div>
@@ -701,9 +718,9 @@
             <h3 class="lp-section-title">Een aura en geur in beweging</h3>
             <p>De tijdlijn verbindt herinneringen, aura’s en parfumversies. Door terug te kijken en aura’s te vergelijken, ziet de gebruiker hoe ervaringen veranderen. Vanuit die ontwikkeling kan het parfum verder evolueren.</p>
             <div class="lp-development-grid">
-              <figure><div class="lp-image-frame lp-phone-frame"><img src="5 Vergelijken en terugblik.png" alt="Aura vergelijken met eerdere versies"></div><figcaption>Vergelijken</figcaption></figure>
-              <figure><div class="lp-image-frame lp-phone-frame"><img src="6 Mijn reis.png" alt="Tijdlijn van herinneringen, aura en parfum"></div><figcaption>De tijdlijn</figcaption></figure>
-              <figure><div class="lp-image-frame lp-phone-frame"><img src="8 Evolve my perfume.png" alt="Parfum verder ontwikkelen op basis van de aura"></div><figcaption>Parfum laten meegroeien</figcaption></figure>
+              <figure><div class="lp-image-frame lp-phone-frame"><img src="assets/images/5 Vergelijken en terugblik.png" alt="Aura vergelijken met eerdere versies"></div><figcaption>Vergelijken</figcaption></figure>
+              <figure><div class="lp-image-frame lp-phone-frame"><img src="assets/images/6 Mijn reis.png" alt="Tijdlijn van herinneringen, aura en parfum"></div><figcaption>De tijdlijn</figcaption></figure>
+              <figure><div class="lp-image-frame lp-phone-frame"><img src="assets/images/8 Evolve my perfume.png" alt="Parfum verder ontwikkelen op basis van de aura"></div><figcaption>Parfum laten meegroeien</figcaption></figure>
             </div>
           </section>
 
@@ -713,7 +730,7 @@
               <h3 class="lp-section-title">Een samenhangend systeem</h3>
               <p>Het design system brengt typografie, kleuren en componenten samen tot een herkenbare appstijl.</p>
               <figure class="lp-design-figure">
-                <div class="lp-image-frame"><img src="Design systeem.png" alt="Design system voor Scentory met typografie, kleuren en interface-elementen"></div>
+                <div class="lp-image-frame"><img src="assets/images/Design systeem.png" alt="Design system voor Scentory met typografie, kleuren en interface-elementen"></div>
                 <figcaption>Typografie · kleuren · componenten</figcaption>
               </figure>
             </div>
@@ -721,7 +738,7 @@
               <h3 class="lp-section-title">Een parfumverhaal in beweging</h3>
               <p>Scentory verbindt herinneringen, aura en parfumontwikkeling in één doorlopende ervaring. Zo kan een geur met de gebruiker meegroeien.</p>
               <figure class="lp-result-figure">
-                <div class="lp-image-frame lp-phone-frame"><img src="12 Nieuw parfum.png" alt="Nieuw parfum, ontwikkeld vanuit de persoonlijke aura"></div>
+                <div class="lp-image-frame lp-phone-frame"><img src="assets/images/12 Nieuw parfum.png" alt="Nieuw parfum, ontwikkeld vanuit de persoonlijke aura"></div>
                 <figcaption>Een nieuwe parfumversie</figcaption>
               </figure>
             </div>
@@ -736,6 +753,27 @@
 
     </div>
   </div>
+
+  <button class="sketch-hint" type="button" aria-label="Tekenen op de achtergrond" aria-describedby="sketch-hint-tooltip">
+    <svg width="22" height="22" viewBox="0 0 22.5 22" fill="none" aria-hidden="true">
+      <path d="M1.2 20.8 4.2 17.6 7.1 20.5Z" fill="white" stroke="#111" stroke-width=".95" stroke-linejoin="round"/>
+      <path d="m1.2 20.8 1-1.35 1.05 1.05Z" fill="#111" stroke="#111" stroke-width=".35" stroke-linejoin="round"/>
+      <path d="M4.2 17.6 15.3 6.2 18.3 9.1 7.1 20.5Z" fill="white" stroke="#111" stroke-width=".95" stroke-linejoin="round"/>
+      <path d="M6.05 18.55 16.35 7.95" fill="none" stroke="#555" stroke-width=".58" stroke-linecap="round"/>
+      <path d="M15.3 6.2 17.6 3.8 20.5 6.7 18.3 9.1Z" fill="#f1f1f1" stroke="#111" stroke-width=".95" stroke-linejoin="round"/>
+      <path d="m16.15 5.35 2.95 2.95m-1.95-3.95 2.95 2.95" fill="none" stroke="#444" stroke-width=".58" stroke-linecap="round"/>
+      <path d="m17.6 3.8 1.62-1.62a1.65 1.65 0 0 1 2.33 0l.18.18a1.65 1.65 0 0 1 0 2.33L20.5 6.7Z" fill="#f7f7f7" stroke="#111" stroke-width=".95" stroke-linejoin="round"/>
+      <path d="M19.05 2.65 20.98 4.58" fill="none" stroke="#777" stroke-width=".48" stroke-linecap="round"/>
+    </svg>
+    <span class="sketch-hint-tooltip" id="sketch-hint-tooltip" role="tooltip">Psst... je kunt hier tekenen</span>
+  </button>
+
+  <button class="sketch-eraser" type="button" aria-label="Wis alle tekeningen" title="Wis alle tekeningen">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M7.1 16.8 4.6 14.3a2 2 0 0 1 .1-2.8l6.9-6.8a2 2 0 0 1 2.8 0l5.2 5.2a2 2 0 0 1 0 2.8l-4.8 4.8H7.1Z" stroke-width="1.6"/>
+      <path d="m9 9.9 6.2 6.1M7.1 17.5h11.1" stroke-width="1.4"/>
+    </svg>
+  </button>
 
   <script src="script.js"></script>
 </body>
